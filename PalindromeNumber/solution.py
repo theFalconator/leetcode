@@ -4,10 +4,10 @@ import math
 class Solution:
     def splitInt(self, x):
         l = []
-        while x % 10 != 0:
+        while x > 0:
             l.append(x % 10)
             x = math.floor(x / 10)
-        return l
+        return l[::-1]
 
     def isPalindrome(self, x):
         # negative numbers cannot be palindromes
@@ -26,8 +26,8 @@ class Solution:
 
             # even number of digits
             if len(l) % 2 == 0:
-                i = math.floor(len(l) / 2)
-                j = math.floor(len(l) / 2)
+                i = int(math.floor(len(l) / 2))
+                j = int(math.floor(len(l) / 2))
                 first_half = l[0:i]
                 second_half = l[j:len(l)]
                 if first_half[::-1] == second_half:
@@ -36,7 +36,7 @@ class Solution:
 
             # odd number of digits
             else:
-                i = math.floor(len(l) / 2)
+                i = int(math.floor(len(l) / 2))
 
                 first_half = l[0:i]
                 second_half = l[i + 1:len(l)]
