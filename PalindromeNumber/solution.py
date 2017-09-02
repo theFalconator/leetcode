@@ -15,8 +15,8 @@ class Solution:
             return False
         else:
             l = self.splitInt(x)
-            firstHalf = l[0:math.floor(len(l)/2)]
-            secondHalf = l[math.floor(len(l)/2):len(l)]
-            if firstHalf[::-1] == secondHalf:
+            first_half = l[0:math.floor(len(l)/2)]
+            second_half = l[math.floor(len(l)/2):len(l)]
+            if first_half[::-1] == second_half:
                 return True
             return False
