@@ -28,9 +28,9 @@ class Solution:
                     current = s[i]
                     next = s[i + 1]
                     if numerals.index(current) < numerals.index(next):
-                        total -= roman_numerals.get(s[i], 0)
+                        total -= roman_numerals[s[i]]
                     else:
-                        total += roman_numerals.get(s[i], 0)
+                        total += roman_numerals[s[i]]
                 else:
-                    total += roman_numerals.get(s[i], 0)
+                    total += roman_numerals[s[i]]
             return total
