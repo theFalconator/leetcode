@@ -12,11 +12,11 @@ class TestSolution(TestCase):
 
     def test_no_common_prefix(self):
         s = Solution()
-        self.assertEqual(s.longestCommonPrefix(['leetcode', 'monkey']), None)
+        self.assertEqual(s.longestCommonPrefix(['leetcode', 'monkey']), '')
 
     def test_empty_input(self):
         s = Solution()
-        self.assertEqual(s.longestCommonPrefix([]), None)
+        self.assertEqual(s.longestCommonPrefix([]), '')
 
     def test_sample_input(self):
         s = Solution()

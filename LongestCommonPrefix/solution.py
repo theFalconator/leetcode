@@ -6,12 +6,12 @@ class Solution:
         :return: string containing the longest common prefix
         '''
         if not strs:
-            return None
+            return ''
 
         prefix = strs[0]
         for i in range(0, len(strs)):
             while strs[i].find(prefix) != 0:
                 prefix = prefix[:-1]
                 if not prefix:
-                    return None
+                    return ''
         return prefix
