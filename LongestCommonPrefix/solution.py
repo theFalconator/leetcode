@@ -5,4 +5,13 @@ class Solution:
         :param strs: List of strings to search for prefix
         :return: string containing the longest common prefix
         '''
-        pass
+        if not strs:
+            return None
+
+        prefix = strs[0]
+        for i in range(0, len(strs)):
+            while strs[i].find(prefix) != 0:
+                prefix = prefix[:-1]
+                if not prefix:
+                    return None
+        return prefix
