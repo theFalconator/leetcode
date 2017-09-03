@@ -1,6 +1,3 @@
-from collections import deque
-
-
 class Solution:
     def isValid(self, s):
         '''
@@ -9,30 +6,25 @@ class Solution:
         :return: True if parentheses are balanced, otherwise False.
         '''
         matching = {
-            '(': ')',
-            '[': ']',
-            '{': '}'
+            ')': '(',
+            ']': '[',
+            '}': '{'
         }
-        buffer = deque()
+        buffer = []
 
         # populate double ended queue with parens
         for paren in s:
-            buffer.append(paren)
-
-        # cannot be balanced if there are an odd number of parens in it
-        if len(buffer) % 2 != 0:
-            return False
-        else:
-            while len(buffer) > 0:
+            if paren in matching.values():
+                buffer.append(paren)
+            elif paren in matching.keys():
                 try:
-                    front = buffer.popleft()
-                    back = buffer.pop()
-                    if back != matching[front]:
+                    if not buffer:
+                        return False
+                    if matching[paren] != buffer.pop():
                         return False
                 except KeyError:
-                    # only have opening parens as keys
-                    # if there is a closing paren first, this will throw a key error
-                    # matching implies that we have open first -- return false
                     return False
+            else:
+                return False
 
-        return True
+        return buffer == []
